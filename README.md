@@ -9,4 +9,4 @@ Para el correcto funcionamiento del Main con los assert es necesario activar "-e
 
 ```
 
-Para acceder al mockup de la web ver el siguiente enlace: [text](https://juliaa64.github.io/MyTriboo/index.html)
+Para acceder al mockup de la web ver el siguiente enlace: [MyTriboo](https://juliaa64.github.io/MyTriboo/index.html)
