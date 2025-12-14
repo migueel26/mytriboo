@@ -1,0 +1,47 @@
+reset
+
+!new Usuario('u1')
+!u1.nombreUsuario := 'carlos009'
+!u1.nombre := 'Carlos'
+!u1.apellidos := 'García'
+!u1.correo := 'carlosg@mail.com'
+!u1.vetado := false
+
+!new Usuario('u2')
+!u2.nombreUsuario := 'gonzalo009'
+!u2.nombre := 'Gonzalo'
+!u2.apellidos := 'Pantín'
+!u2.correo := 'gonzalo@mail.com'
+!u2.vetado := false
+
+!new Usuario('u3')
+!u3.nombreUsuario := 'candela009'
+!u3.nombre := 'Candela'
+!u3.apellidos := 'Dávila'
+!u3.correo := 'candela@mail.com'
+!u3.vetado := false
+
+!new Usuario('u4')
+!u4.nombreUsuario := 'joseca009'
+!u4.nombre := 'Joseca'
+!u4.apellidos := 'Durán'
+!u4.correo := 'joseca@mail.com'
+!u4.vetado := false
+
+
+!insert (u2, u4) into Conexion
+!Conexion1.estado := #Aceptada
+!Conexion1.antiguedad := 3
+
+!insert (u4, u2) into Conexion --Añadimos la misma conexión pero en sentido contrario
+!Conexion2.estado := #Aceptada
+!Conexion2.antiguedad := 3
+
+!insert (u2, u3) into Conexion --Añadimos una conexión que todavía no ha sido aceptada pero tiene antiguedad 4
+!Conexion3.estado := #Pendiente
+!Conexion3.antiguedad := 4
+
+!insert (u1, u1) into Conexion --Añadimos una conexión entre el mismo usuario
+!Conexion4.estado := #Aceptada
+!Conexion4.antiguedad := 0
+

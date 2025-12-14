@@ -1,0 +1,75 @@
+reset
+
+-- 1. Usuario Pepe interesado en el fútbol y ciencia
+!new Usuario('u1')
+!u1.nombreUsuario := 'Pepe009'
+!u1.nombre := 'Pepe'
+!u1.apellidos := 'Matamoros'
+!u1.correo := 'pepem@mail.com'
+!u1.fechaNacimiento := '05-07-1998'
+!u1.vetado := true
+
+!new Usuario('u2')
+!u2.nombreUsuario := 'admin'
+
+
+!new Deportes('futbol')
+!insert (u1, futbol) into Descripcion
+
+!new Ciencia('ciencia')
+!insert (u1, ciencia) into Descripcion
+
+-- 2. Crear eventos pasados a los que Pepe ha asistido
+!new Evento('e1')
+!e1.titulo := 'Speed Dating O(1)'
+!e1.concluido := true  
+!e1.aforo := 10
+
+!insert (futbol, e1) into EventoContieneIntereses
+
+!new ChatEvento('c1')
+!insert (e1, c1) into TieneChat
+
+!new Evento('e2')
+!e2.titulo := 'k-Nearest Nerds'
+!e2.concluido := true
+!e2.aforo := 50
+
+!insert (ciencia, e2) into EventoContieneIntereses
+
+!new ChatEvento('c2')
+!insert (e2, c2) into TieneChat
+
+
+-- 3. Evento al que Pepe no ha asistido
+
+!new Evento('e3')
+!e3.titulo := 'TCP Handshake Meeting'
+!e3.concluido := false
+!e3.aforo := 30
+
+!insert (ciencia, e3) into EventoContieneIntereses
+
+!new ChatEvento('c3')
+!insert (e3, c3) into TieneChat
+
+
+-- 4. Indicamos que Pepe ha asistido a los eventos pasados
+
+!insert (u1, e1) into Asiste
+!insert (u1, e2) into Asiste
+--!insert (u1, e3) into Asiste -- Esto es lo que produce el fallo del invariante
+
+
+-- 5. Indicamos que los eventos han sido creados por el admin
+
+!insert (u2, e1) into CreaEventos
+!insert (u2, e1) into Asiste
+
+!insert (u2, e2) into CreaEventos
+!insert (u2, e2) into Asiste
+
+!insert (u2, e3) into CreaEventos
+!insert (u2, e3) into Asiste
+
+

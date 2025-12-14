@@ -1,0 +1,59 @@
+reset
+
+!new Ciencia('ciencia')
+!new Deportes('deportes')
+!new Musica('musica')
+
+-- Usuario y sus intereses
+!new Usuario('u1')
+!u1.nombreUsuario := 'Juan009'
+!u1.nombre := 'Juan'
+!u1.apellidos := 'Carballal'
+!u1.correo := 'example@mail.com'
+!u1.fechaNacimiento := '05-07-1998'
+!u1.vetado := false
+
+
+!insert (u1, ciencia) into Descripcion
+!insert (u1, deportes) into Descripcion
+-----------------------------------------
+
+-- Eventos y sus intereses
+
+!new Evento('e1')
+!e1.titulo := 'Masterclass de JavaScript'
+!e1.aforo := 50
+!e1.fecha := '02-12-2025'
+!e1.lugar := 'En un lugar de la Mancha'
+
+!new Evento('e2')
+!e2.titulo := 'Clase de modelado'
+!e2.aforo := 50
+!e2.fecha := '03-12-2025'
+!e2.lugar := 'De cuyo nombre no quiero acordarme'
+
+!new Evento('e3')
+!e3.titulo := 'Cena de filósofos'
+!e3.aforo := 50
+!e3.fecha := '04-12-2025'
+!e3.lugar := 'No ha mucho tiempo que vivía un hidalgo'
+
+
+!insert (ciencia, e1) into EventoContieneIntereses
+
+!insert (ciencia, e2) into EventoContieneIntereses
+!insert (deportes, e2) into EventoContieneIntereses
+
+!insert (musica, e3) into EventoContieneIntereses
+----------------------------------------------------
+
+-- Tablón de Juan con sus intereses
+!new TablonEventos('tablonEv1')
+
+!insert(e1, tablonEv1) into TablonMuestraEventos
+!insert(e2, tablonEv1) into TablonMuestraEventos
+--!insert(e3, tablonEv1) into TablonMuestraEventos
+-------------------------------------------------
+
+-- Asociamos el tablón a Juan
+!insert(u1, tablonEv1) into TieneTablonEventos

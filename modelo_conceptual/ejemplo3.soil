@@ -1,0 +1,26 @@
+reset
+
+!new Usuario('victima')
+!victima.nombreUsuario := 'Julia09'
+!victima.vetado := false
+
+!new Usuario('acosador')
+!acosador.nombreUsuario := 'John08'
+!acosador.vetado := false
+
+!new Usuario('u3')
+!u3.nombreUsuario := 'LoboSolitario'
+!u3.vetado := false
+
+-- Creamos una conexión pero la dejamos en 'Pendiente'
+!insert (acosador, victima) into Conexion
+!Conexion1.estado := #Pendiente
+-- Intentamos decir que somos amigos desde hace 5 años, aunque esté pendiente
+!Conexion1.antiguedad := 0
+
+-- Intentamos crear un chat privado sin que exista una conexión entre ellos
+!new ChatPrivado('chatIlegal')
+!insert (victima, chatIlegal) into MantieneChat
+!insert (acosador, chatIlegal) into MantieneChat
+
+

@@ -1,0 +1,47 @@
+reset
+
+-- Intereses
+
+!new Deportes('InteresDeportes')
+
+
+-- Usuarios
+
+!new Usuario('User1')
+!new Usuario('User2')
+!new Usuario('User3')
+!new Usuario('User4')
+
+-- Conexiones
+
+-- !insert(User1, User2) into Conexion
+-- !Conexion1.estado := #Aceptada
+
+-- !insert(User2, User3) into Conexion 
+-- !Conexion2.estado := #Pendiente
+
+--!insert(User2, User1) into Conexion -- Incumple invariante
+
+-- Chats Privados
+!new ChatPrivado('chat1')
+!insert(User1, chat1) into MantieneChat
+!insert(User2, chat1) into MantieneChat
+
+!new ChatPrivado('chat2')
+!insert(User2, chat2) into MantieneChat
+!insert(User3, chat2) into MantieneChat
+
+!new ChatPrivado('chat3')
+!insert(User4, chat3) into MantieneChat
+!insert(User4, chat3) into MantieneChat
+
+
+
+-- Evento
+
+!new Evento('Evento1')
+
+!insert(User4, Evento1) into CreaEventos
+
+
+

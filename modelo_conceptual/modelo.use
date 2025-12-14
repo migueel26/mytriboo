@@ -1,0 +1,232 @@
+model MeetYourMate
+
+------------- ENUMERADOS -------------
+enum EstadoConexion {Pendiente, Aceptada, Bloqueo}
+
+
+
+
+------------- CLASES -------------
+class Usuario
+attributes
+    nombreUsuario: String
+    nombre: String
+    apellidos: String
+    correo: String
+    fechaNacimiento: String
+    vetado: Boolean
+end
+
+class Evento
+attributes
+    titulo: String
+    fecha: String
+    aforo: Integer
+    lugar: String
+    concluido: Boolean
+end
+
+abstract class Chat
+attributes
+    fechaCreacion: String
+end
+
+class ChatPrivado < Chat
+end
+
+class ChatEvento < Chat
+end
+
+class Publicacion
+attributes 
+    fecha: String
+    contenido: String
+    likes: Integer derive: self.usuarios->size()
+end
+
+abstract class Tablon
+end
+
+class TablonEventos < Tablon
+end
+
+class TablonPublicaciones < Tablon
+end
+
+abstract class Interes
+end
+
+-- Intereses concretos
+class Deportes < Interes
+end
+
+class Ciencia < Interes
+end
+
+class Musica < Interes
+end
+
+class Mensaje
+attributes
+    texto: String
+    fecha: String
+end
+
+
+------------- ASOCIACIONES -------------
+
+association CreaEventos between
+Usuario[1] role usuarioCreador
+Evento[*] role eventosCreados
+end
+
+association Asiste between
+Usuario[1..*] role asistentes
+Evento[*] role eventosAsistidos
+end
+
+associationclass Conexion between
+Usuario [*] role usuario1
+Usuario [*] role usuario2
+attributes
+    estado: EstadoConexion
+    antiguedad: Integer
+end
+
+associationclass Descripcion between
+Usuario [0..*] role usuario
+Interes [1..*] role intereses
+attributes 
+    texto: String
+end
+
+composition CreaPublicaciones between
+Usuario [1] role usuario
+Publicacion [0..*] role publicaciones 
+end
+
+composition TieneChat between
+Evento[1] role evento
+ChatEvento[1] role chat 
+end
+
+association TablonMuestraEventos between
+Evento[1..*] role eventos
+TablonEventos[*] role tablon
+end
+
+association TablonMuestraPublicaciones between
+Publicacion[1..*] role publicaciones
+TablonPublicaciones[*] role tablon
+end
+
+association PublicacionContieneIntereses between
+Interes[1..*] role intereses
+Publicacion[*] role publicacion
+end
+
+association EventoContieneIntereses between
+Interes[1..*] role intereses
+Evento[*] role eventos
+end
+
+association LeGusta between
+Usuario[*] role usuarios
+Publicacion[*] role publicacionesGustadas
+end
+
+association MantieneChat between
+Usuario[2] role usuarios
+ChatPrivado[0..*] role ChatPrivado
+end
+
+composition TieneTablonPublicaciones between
+Usuario[1] role usuario
+TablonPublicaciones[1] role tablonPub
+end
+
+composition TieneTablonEventos between
+Usuario[1] role usuario
+TablonEventos[1] role tablonEv
+end
+
+association EscribeMensajes between
+Usuario[1] role usuario
+Mensaje[*] role mensajes
+end
+
+association ContieneMensaje between
+Chat[1] role chat
+Mensaje[*] role mensajes
+end
+
+------------- RESTRICCIONES -------------
+constraints
+
+context Conexion
+    -- Si una conexión entre usuarios se encuentra en estado Pendiente o Bloqueado,
+    -- obligatoriamente su antigüedad debe valer 0.
+    inv AntiguedadConEstadoPendiente:  
+        self.estado <> EstadoConexion::Aceptada implies self.antiguedad = 0
+
+    -- Un usuario no podrá mantener una conexión consigo mismo
+    inv conexionUsuariosDistintos:
+        self.usuario1 <> self.usuario2
+
+    -- No puede existir más de una conexión entre el mismo par de usuarios
+    inv conexionUnicaParUsuarios:
+        Conexion.allInstances()->excluding(self)->forAll(
+            c | (c.usuario1 <> self.usuario1 or c.usuario2 <> self.usuario2) and 
+                (c.usuario1 <> self.usuario2 or c.usuario2 <> self.usuario1)
+        )
+
+
+context Usuario
+    -- Si un usuario ha sido vetado, entonces ya no podrá crear ni asistir a eventos
+    -- Nótese que los eventos ya concluidos no influyen 
+    inv UsuarioVetado:
+        self.vetado = true implies 
+            -- Buscamos eventos que no hayan concluido y verificamos que no exista ninguno
+            self.eventosCreados->select(e | e.concluido = false)->isEmpty() and
+            self.eventosAsistidos->select(e | e.concluido = false)->isEmpty() 
+
+    -- Todos los usuarios deben tener nombres de usuario distintos
+    inv nombresUsuarioDistintos:
+        Usuario.allInstances()->isUnique(nombreUsuario)
+
+
+context Evento
+    -- El número de participantes en un evento no podrá superar el aforo máximo de dicho evento.
+    inv participantesNoSuperaAforo:
+        self.aforo >= self.asistentes->size()
+
+    -- El creador del evento debe ser también un asistente al evento.
+    inv creadorEventoTambienAsistente:
+        self.asistentes->size() > 0 implies
+            self.asistentes->includes(self.usuarioCreador)
+
+context TablonEventos
+    -- Tanto el tablón de eventos como el de publicaciones de un usuario, deberán contener 
+    -- eventos/publicaciones que contengan al menos un interés común con el usuario. 
+    inv alMenosUnInteres:
+        self.eventos->forAll(intereses->intersection(self.usuario.intereses)->size() > 0)
+
+context TablonPublicaciones
+    -- Análogo al de TablonEventos
+    inv alMenosUnInteres:
+        self.publicaciones->forAll(intereses->intersection(self.usuario.intereses)->size() > 0)
+
+context ChatPrivado
+    -- Para que un chat privado exista entre 2 usuarios deben tener una conexión con estado Aceptada
+    inv chatPrivadoConexionAceptada:
+        self.usuarios->size() = 2 implies
+            Conexion.allInstances()->exists(
+                c | Set{c.usuario1, c.usuario2}->intersection(self.usuarios)->size() = 2 
+                    and c.estado = #Aceptada
+            )
+
+    -- Un usuario no podrá mantener un chat privado consigo mismo.
+    -- En teoría no es necesario ya que USE no permite asociar un objeto (chat)
+    -- con otro (usuario) más de una vez.
+    -- inv chatPrivadoUsuariosDiferentes:
+    --     self.usuarios->isUnique(nombreUsuario)
