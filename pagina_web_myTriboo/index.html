@@ -1,0 +1,393 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyTriboo</title>
+    <!-- Favicon -->
+    <link href="images/Logo_sinFondo.png" rel="icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="light" class="smooth-scroll">
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-section">
+                <a href="index.html" style="display: flex; align-items: center; gap: 1rem; text-decoration: none;">
+                    <img src="images/Logo_sinFondo.png" alt="MyTriboo Logo" class="logo">
+                    <span class="logo-text">MyTriboo</span>
+                </a>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" class="active" data-translate="nav_home">Inicio</a></li>
+                <li><a href="events.html" data-translate="nav_events">Eventos</a></li>
+                <li><a href="posts.html" data-translate="nav_posts">Publicaciones</a></li>
+                <li><a href="chats.html" data-translate="nav_chats">Chats</a></li>
+                <li><a href="profile.html" data-translate="nav_profile">Perfil</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button id="accessibility-btn" class="icon-btn" aria-label="Accesibilidad">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                </button>
+                
+                <button class="btn btn-primary" data-translate="btn_join">Únete ahora</button>
+                
+                <button id="mobile-menu-btn" class="icon-btn mobile-menu-btn" aria-label="Menú">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+        <div class="mobile-menu-content">
+            <ul class="mobile-nav-links">
+                <li><a href="index.html" class="active" data-translate="nav_home">Inicio</a></li>
+                <li><a href="events.html" data-translate="nav_events">Eventos</a></li>
+                <li><a href="posts.html" data-translate="nav_posts">Publicaciones</a></li>
+                <li><a href="chats.html" data-translate="nav_chats">Chats</a></li>
+                <li><a href="profile.html" data-translate="nav_profile">Perfil</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Accessibility Panel -->
+    <div id="accessibility-panel" class="accessibility-panel">
+        <h3 data-translate="accessibility_title">Accesibilidad</h3>
+        
+        <div style="margin-bottom: 1rem;">
+            <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;" data-translate="theme_label">Tema</label>
+            <div class="theme-buttons">
+                <button id="theme-light" class="theme-btn active" data-translate="theme_light">☀️ Claro</button>
+                <button id="theme-dark" class="theme-btn" data-translate="theme_dark">🌙 Oscuro</button>
+            </div>
+        </div>
+
+        <div>
+            <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;" data-translate="language_label">Idioma</label>
+            <select id="language-select" class="language-select">
+                <option value="es">🇪🇸 Español</option>
+                <option value="en">🇬🇧 English</option>
+                <option value="fr">🇫🇷 Français</option>
+                <option value="de">🇩🇪 Deutsch</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-pattern" style="padding-top: 8rem; padding-bottom: 5rem;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: center;">
+                <div class="fade-in">
+                    <h1 style="font-size: 3.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem;">
+                        <span data-translate="hero_title_1">Encuentra tu</span>
+                        <span class="gradient-text" data-translate="hero_title_2"> triboo</span>
+                        <br>
+                        <span data-translate="hero_title_3">a través de tus</span>
+                        <br>
+                        <span data-translate="hero_title_4">intereses</span>
+                    </h1>
+                    <p style="font-size: 1.25rem; opacity: 0.8; margin-bottom: 2rem; line-height: 1.6;" data-translate="hero_description">
+                        Conecta con personas que comparten tus pasiones. Asiste a eventos temáticos, comparte experiencias y construye relaciones auténticas.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+                        <button class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.125rem;" data-translate="btn_get_started">Comenzar</button>
+                        <button class="btn btn-secondary" style="padding: 1rem 2rem; font-size: 1.125rem;" data-translate="btn_learn_more">Saber más</button>
+                    </div>
+                    
+                    <div style="display: flex; gap: 2rem; margin-top: 3rem;">
+                        <div>
+                            <div class="gradient-text" style="font-size: 2rem; font-weight: 700;">50K+</div>
+                            <div style="font-size: 0.875rem; opacity: 0.7;" data-translate="stats_users">Usuarios activos</div>
+                        </div>
+                        <div>
+                            <div class="gradient-text" style="font-size: 2rem; font-weight: 700;">10K+</div>
+                            <div style="font-size: 0.875rem; opacity: 0.7;" data-translate="stats_events">Eventos creados</div>
+                        </div>
+                        <div>
+                            <div class="gradient-text" style="font-size: 2rem; font-weight: 700;">200+</div>
+                            <div style="font-size: 0.875rem; opacity: 0.7;" data-translate="stats_categories">Categorías</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="position: relative;">
+                    <!-- Animated Connections Network -->
+                    <svg viewBox="0 0 500 500" style="width: 100%; max-width: 500px; height: auto; filter: drop-shadow(0 20px 50px rgba(123, 140, 222, 0.2));">
+                        <defs>
+                            <!-- Gradients -->
+                            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#7B8CDE;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#E85D75;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#E85D75;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#FFA94D;stop-opacity:1" />
+                            </linearGradient>
+                            
+                            <!-- Animated line paths -->
+                            <style>
+                                .connection-line {
+                                    stroke-width: 2;
+                                    stroke-linecap: round;
+                                    opacity: 0;
+                                    animation: fadeInLine 3s ease-in-out infinite;
+                                }
+                                .node-circle {
+                                    animation: pulse 2s ease-in-out infinite;
+                                }
+                                
+                                @keyframes fadeInLine {
+                                    0%, 100% { opacity: 0; stroke-dashoffset: 100; }
+                                    50% { opacity: 0.6; stroke-dashoffset: 0; }
+                                }
+                                @keyframes pulse {
+                                    0%, 100% { transform: scale(1); }
+                                    50% { transform: scale(1.1); }
+                                }
+                            </style>
+                        </defs>
+                        
+                        <!-- Connection Lines -->
+                        <!-- Node 1 (100,100,r35) to Node 2 (250,150,r40) -->
+                        <line class="connection-line" x1="130" y1="117" x2="217" y2="135" stroke="url(#grad1)" stroke-dasharray="100" style="animation-delay: 0s;" />
+                        <!-- Node 1 (100,100,r35) to Node 4 (150,250,r35) -->
+                        <line class="connection-line" x1="113" y1="131" x2="135" y2="219" stroke="url(#grad1)" stroke-dasharray="100" style="animation-delay: 0.5s;" />
+                        <!-- Node 2 (250,150,r40) to Node 3 (400,100,r35) -->
+                        <line class="connection-line" x1="287" y1="137" x2="368" y2="113" stroke="url(#grad2)" stroke-dasharray="100" style="animation-delay: 1s;" />
+                        <!-- Node 2 (250,150,r40) to Node 5 (350,300,r35) -->
+                        <line class="connection-line" x1="277" y1="185" x2="323" y2="271" stroke="url(#grad1)" stroke-dasharray="100" style="animation-delay: 1.5s;" />
+                        <!-- Node 4 (150,250,r35) to Node 6 (250,350,r35) -->
+                        <line class="connection-line" x1="177" y1="275" x2="223" y2="325" stroke="url(#grad2)" stroke-dasharray="100" style="animation-delay: 0.8s;" />
+                        <!-- Node 4 (150,250,r35) to Node 5 (350,300,r35) -->
+                        <line class="connection-line" x1="183" y1="260" x2="317" y2="290" stroke="url(#grad1)" stroke-dasharray="100" style="animation-delay: 1.2s;" />
+                        <!-- Node 3 (400,100,r35) to Node 5 (350,300,r35) -->
+                        <line class="connection-line" x1="385" y1="131" x2="365" y2="269" stroke="url(#grad2)" stroke-dasharray="100" style="animation-delay: 2s;" />
+                        <!-- Node 5 (350,300,r35) to Node 6 (250,350,r35) -->
+                        <line class="connection-line" x1="320" y1="318" x2="280" y2="332" stroke="url(#grad1)" stroke-dasharray="100" style="animation-delay: 2.5s;" />
+                        <!-- Node 6 (250,350,r35) to Node 7 (150,400,r30) -->
+                        <line class="connection-line" x1="222" y1="370" x2="174" y2="384" stroke="url(#grad2)" stroke-dasharray="100" style="animation-delay: 1.8s;" />
+                        <!-- Node 3 (400,100,r35) to Node 8 (400,400,r30) -->
+                        <line class="connection-line" x1="400" y1="135" x2="400" y2="370" stroke="url(#grad1)" stroke-dasharray="100" style="animation-delay: 2.2s;" />
+                        <!-- Node 5 (350,300,r35) to Node 8 (400,400,r30) -->
+                        <line class="connection-line" x1="369" y1="330" x2="386" y2="374" stroke="url(#grad2)" stroke-dasharray="100" style="animation-delay: 2.8s;" />
+                        <!-- Node 7 (150,400,r30) to Node 6 (250,350,r35) -->
+                        <line class="connection-line" x1="177" y1="386" x2="223" y2="368" stroke="url(#grad1)" stroke-dasharray="100" style="animation-delay: 3s;" />
+                        
+                        <!-- Node 1: Science -->
+                        <g class="node-circle" transform-origin="100 100" style="animation-delay: 0s;">
+                            <circle cx="100" cy="100" r="35" fill="url(#grad1)" opacity="0.9"/>
+                            <text x="100" y="110" text-anchor="middle" font-size="28">🔬</text>
+                        </g>
+                        
+                        <!-- Node 2: Center Hub -->
+                        <g class="node-circle" transform-origin="250 150" style="animation-delay: 0.3s;">
+                            <circle cx="250" cy="150" r="40" fill="url(#grad2)" opacity="0.9"/>
+                            <text x="250" y="160" text-anchor="middle" font-size="32">❤️</text>
+                        </g>
+                        
+                        <!-- Node 3: Sports -->
+                        <g class="node-circle" transform-origin="400 100" style="animation-delay: 0.6s;">
+                            <circle cx="400" cy="100" r="35" fill="url(#grad1)" opacity="0.9"/>
+                            <text x="400" y="110" text-anchor="middle" font-size="28">⚽</text>
+                        </g>
+                        
+                        <!-- Node 4: Art -->
+                        <g class="node-circle" transform-origin="150 250" style="animation-delay: 0.9s;">
+                            <circle cx="150" cy="250" r="35" fill="url(#grad2)" opacity="0.9"/>
+                            <text x="150" y="260" text-anchor="middle" font-size="28">🚴🏻‍♀️</text>
+                        </g>
+                        
+                        <!-- Node 5: Tech -->
+                        <g class="node-circle" transform-origin="350 300" style="animation-delay: 1.2s;">
+                            <circle cx="350" cy="300" r="35" fill="url(#grad1)" opacity="0.9"/>
+                            <text x="350" y="310" text-anchor="middle" font-size="28">💻</text>
+                        </g>
+                        
+                        <!-- Node 6: Music -->
+                        <g class="node-circle" transform-origin="250 350" style="animation-delay: 1.5s;">
+                            <circle cx="250" cy="350" r="35" fill="url(#grad2)" opacity="0.9"/>
+                            <text x="250" y="360" text-anchor="middle" font-size="28">🎵</text>
+                        </g>
+                        
+                        <!-- Node 7: Books -->
+                        <g class="node-circle" transform-origin="150 400" style="animation-delay: 1.8s;">
+                            <circle cx="150" cy="400" r="30" fill="url(#grad1)" opacity="0.9"/>
+                            <text x="150" y="408" text-anchor="middle" font-size="24">📚</text>
+                        </g>
+                        
+                        <!-- Node 8: Cinema -->
+                        <g class="node-circle" transform-origin="400 400" style="animation-delay: 2.1s;">
+                            <circle cx="400" cy="400" r="30" fill="url(#grad2)" opacity="0.9"/>
+                            <text x="400" y="408" text-anchor="middle" font-size="24">🎬</text>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section>
+        <div class="container">
+            <div style="text-center: center; margin-bottom: 4rem;">
+                <h2 style="font-size: 3rem; font-weight: 700; margin-bottom: 1rem; text-align: center;" data-translate="features_title">Todo lo que necesitas</h2>
+                <p style="font-size: 1.25rem; opacity: 0.8; text-align: center;" data-translate="features_subtitle">Descubre las herramientas para conectar con tu comunidad</p>
+            </div>
+
+            <div class="features-grid">
+                <!-- Feature 1: Events -->
+                <div class="card">
+                    <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: white; font-size: 1.75rem;">
+                        📅
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;" data-translate="feature_events_title">Eventos Temáticos</h3>
+                    <p style="opacity: 0.8; line-height: 1.6;" data-translate="feature_events_desc">Crea y asiste a eventos organizados según tus intereses. Desde ciencia hasta deportes, encuentra el lugar perfecto para ti.</p>
+                </div>
+
+                <!-- Feature 2: Connections -->
+                <div class="card">
+                    <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--color-secondary), var(--color-accent)); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: white; font-size: 1.75rem;">
+                        🤝
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;" data-translate="feature_connections_title">Conexiones Auténticas</h3>
+                    <p style="opacity: 0.8; line-height: 1.6;" data-translate="feature_connections_desc">Construye tu red de contactos con personas afines. Sistema de conexiones inteligente.</p>
+                </div>
+
+                <!-- Feature 3: Posts -->
+                <div class="card">
+                    <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: white; font-size: 1.75rem;">
+                        ✍️
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;" data-translate="feature_posts_title">Publicaciones</h3>
+                    <p style="opacity: 0.8; line-height: 1.6;" data-translate="feature_posts_desc">Comparte reflexiones y experiencias. Dale like a las publicaciones que te gusten.</p>
+                </div>
+
+                <!-- Feature 4: Personalized Feed -->
+                <div class="card">
+                    <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--color-secondary), var(--color-accent)); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: white; font-size: 1.75rem;">
+                        📋
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;" data-translate="feature_feed_title">Tablones Personalizados</h3>
+                    <p style="opacity: 0.8; line-height: 1.6;" data-translate="feature_feed_desc">Descubre eventos y publicaciones relacionados con tus intereses.</p>
+                </div>
+
+                <!-- Feature 5: Messaging -->
+                <div class="card">
+                    <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: white; font-size: 1.75rem;">
+                        💬
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;" data-translate="feature_messaging_title">Mensajería Completa</h3>
+                    <p style="opacity: 0.8; line-height: 1.6;" data-translate="feature_messaging_desc">Chats privados y grupales para comunicarte con tu triboo.</p>
+                </div>
+
+                <!-- Feature 6: Interests -->
+                <div class="card">
+                    <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--color-secondary), var(--color-accent)); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: white; font-size: 1.75rem;">
+                        ⭐
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;" data-translate="feature_interests_title">Múltiples Intereses</h3>
+                    <p style="opacity: 0.8; line-height: 1.6;" data-translate="feature_interests_desc">Selecciona tus intereses: Ciencia, Deportes, Música y más.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works Section -->
+    <section style="background-color: rgba(123, 140, 222, 0.05);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2 style="font-size: 3rem; font-weight: 700; margin-bottom: 1rem;" data-translate="how_title">¿Cómo funciona?</h2>
+                <p style="font-size: 1.25rem; opacity: 0.8;" data-translate="how_subtitle">Únete a tu triboo en 3 simples pasos</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem;">
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); color: white; font-size: 2rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                        1
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;" data-translate="step1_title">Crea tu perfil</h3>
+                    <p style="opacity: 0.8; line-height: 1.6;" data-translate="step1_desc">Regístrate y selecciona tus intereses. Personaliza tu experiencia.</p>
+                </div>
+
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--color-secondary), var(--color-accent)); color: white; font-size: 2rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                        2
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;" data-translate="step2_title">Descubre y conecta</h3>
+                    <p style="opacity: 0.8; line-height: 1.6;" data-translate="step2_desc">Explora eventos y publicaciones. Conecta con personas afines.</p>
+                </div>
+
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); color: white; font-size: 2rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                        3
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;" data-translate="step3_title">Participa y crece</h3>
+                    <p style="opacity: 0.8; line-height: 1.6;" data-translate="step3_desc">Asiste a eventos y construye tu red social auténtica.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section>
+        <div class="container">
+            <div class="card" style="text-align: center; padding: 4rem 2rem; background: linear-gradient(135deg, rgba(123, 140, 222, 0.1), rgba(224, 122, 122, 0.1));">
+                <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;" data-translate="cta_title">¿Listo para encontrar tu triboo?</h2>
+                <p style="font-size: 1.25rem; opacity: 0.8; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;" data-translate="cta_description">
+                    Únete a miles de personas que ya están conectando a través de sus pasiones compartidas.
+                </p>
+                <button class="btn btn-primary" style="padding: 1rem 3rem; font-size: 1.125rem;" data-translate="btn_join_now">Únete gratis ahora</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>MyTriboo</h3>
+                <p style="opacity: 0.7; line-height: 1.6;" data-translate="footer_description">Conecta con tu triboo a través de tus intereses compartidos.</p>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="footer_product">Producto</h3>
+                <ul>
+                    <li><a href="events.html" data-translate="nav_events">Eventos</a></li>
+                    <li><a href="posts.html" data-translate="nav_posts">Publicaciones</a></li>
+                    <li><a href="chats.html" data-translate="nav_chats">Chats</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="footer_company">Compañía</h3>
+                <ul>
+                    <li><a href="#" data-translate="footer_about">Acerca de</a></li>
+                    <li><a href="#" data-translate="footer_contact">Contacto</a></li>
+                    <li><a href="#" data-translate="footer_privacy">Privacidad</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="footer_social">Social</h3>
+                <ul>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 MyTriboo. <span data-translate="footer_rights">Todos los derechos reservados.</span></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

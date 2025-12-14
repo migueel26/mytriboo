@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - MyTriboo</title>
+    <link href="images/Logo_sinFondo.png" rel="icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="light" class="smooth-scroll">
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-section">
+                <a href="index.html" style="display: flex; align-items: center; gap: 1rem; text-decoration: none;">
+                    <img src="images/Logo_sinFondo.png" alt="MyTriboo Logo" class="logo">
+                    <span class="logo-text">MyTriboo</span>
+                </a>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" data-translate="nav_home">Inicio</a></li>
+                <li><a href="events.html" data-translate="nav_events">Eventos</a></li>
+                <li><a href="posts.html" data-translate="nav_posts">Publicaciones</a></li>
+                <li><a href="chats.html" data-translate="nav_chats">Chats</a></li>
+                <li><a href="profile.html" class="active" data-translate="nav_profile">Perfil</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button id="accessibility-btn" class="icon-btn" aria-label="Accesibilidad">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                </button>
+                
+                <button id="mobile-menu-btn" class="icon-btn mobile-menu-btn" aria-label="Menú">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+        <div class="mobile-menu-content">
+            <ul class="mobile-nav-links">
+                <li><a href="index.html" data-translate="nav_home">Inicio</a></li>
+                <li><a href="events.html" data-translate="nav_events">Eventos</a></li>
+                <li><a href="posts.html" data-translate="nav_posts">Publicaciones</a></li>
+                <li><a href="chats.html" data-translate="nav_chats">Chats</a></li>
+                <li><a href="profile.html" class="active" data-translate="nav_profile">Perfil</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Accessibility Panel -->
+    <div id="accessibility-panel" class="accessibility-panel">
+        <h3 data-translate="accessibility_title">Accesibilidad</h3>
+        
+        <div style="margin-bottom: 1rem;">
+            <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;" data-translate="theme_label">Tema</label>
+            <div class="theme-buttons">
+                <button id="theme-light" class="theme-btn active" data-translate="theme_light">☀️ Claro</button>
+                <button id="theme-dark" class="theme-btn" data-translate="theme_dark">🌙 Oscuro</button>
+            </div>
+        </div>
+
+        <div>
+            <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;" data-translate="language_label">Idioma</label>
+            <select id="language-select" class="language-select">
+                <option value="es">🇪🇸 Español</option>
+                <option value="en">🇬🇧 English</option>
+                <option value="fr">🇫🇷 Français</option>
+                <option value="de">🇩🇪 Deutsch</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Profile Header -->
+    <section style="padding-top: 8rem; padding-bottom: 2rem;">
+        <div class="container">
+            <div class="profile-header">
+                <div class="profile-avatar"></div>
+                <div class="profile-info">
+                    <h1 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">Juan Pérez</h1>
+                    <p style="font-size: 1.125rem; opacity: 0.7; margin-bottom: 1rem;">@juanperez • <span data-translate="profile_member_since">Miembro desde</span> 2024</p>
+                    <div class="profile-stats">
+                        <div>
+                            <span style="font-weight: 700; font-size: 1.25rem;">45</span>
+                            <span style="opacity: 0.7;" data-translate="profile_stats_events"> eventos</span>
+                        </div>
+                        <div>
+                            <span style="font-weight: 700; font-size: 1.25rem;">128</span>
+                            <span style="opacity: 0.7;" data-translate="profile_stats_connections"> conexiones</span>
+                        </div>
+                        <div>
+                            <span style="font-weight: 700; font-size: 1.25rem;">87</span>
+                            <span style="opacity: 0.7;" data-translate="profile_stats_posts"> publicaciones</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary" data-translate="btn_logout">Cerrar sesión</button>
+        </div>
+    </section>
+
+    <!-- Profile Tabs -->
+    <section style="padding-top: 0;">
+        <div class="container">
+            <div class="tabs">
+                <button class="tab active" data-tab="profile" data-translate="tab_profile">Perfil</button>
+                <button class="tab" data-tab="events" data-translate="tab_my_events">Mis eventos</button>
+                <button class="tab" data-tab="posts" data-translate="tab_my_posts">Mis publicaciones</button>
+                <button class="tab" data-tab="connections" data-translate="tab_my_connections">Mis conexiones</button>
+            </div>
+
+            <!-- Tab: Profile -->
+            <div id="tab-profile" class="tab-content" style="display: block;">
+                <div>
+                    <div class="card" style="margin-bottom: 2rem;">
+                        <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem;" data-translate="profile_edit">Editar perfil</h2>
+                        
+                        <form>
+                            <div class="form-group">
+                                <label data-translate="label_name">Nombre completo</label>
+                                <input type="text" value="Juan Pérez" data-placeholder="placeholder_name" placeholder="Tu nombre">
+                            </div>
+
+                            <div class="form-group">
+                                <label data-translate="label_email">Correo electrónico</label>
+                                <input type="email" value="juan@example.com" data-placeholder="placeholder_email" placeholder="tu@email.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label data-translate="label_bio">Biografía</label>
+                                <textarea data-placeholder="placeholder_bio" data-translate="profile_bio_content" placeholder="Cuéntanos sobre ti...">Apasionado de la ciencia y la tecnología. Me encanta conectar con personas que comparten mis intereses.</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label data-translate="label_location">Ubicación</label>
+                                <input type="text" value="Madrid, España" data-placeholder="placeholder_location" placeholder="Ciudad, País">
+                            </div>
+
+                            <div class="form-group">
+                                <label data-translate="label_interests">Intereses</label>
+                                
+                                <!-- Interés: Ciencia -->
+                                <div style="margin-bottom: 1rem;">
+                                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                        <span class="category-badge" data-translate="category_science">🔬 Ciencia</span>
+                                        <button type="button" class="icon-btn" style="width: 24px; height: 24px; font-size: 0.75rem;" title="Eliminar">✕</button>
+                                    </div>
+                                    <input type="text" value="Me fascina la astronomía y la física cuántica. Siempre busco aprender más sobre el universo." placeholder="Describe tu interés por la ciencia" style="font-size: 0.875rem;">
+                                </div>
+
+                                <!-- Interés: Tecnología -->
+                                <div style="margin-bottom: 1rem;">
+                                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                        <span class="category-badge" data-translate="category_tech">💻 Tecnología</span>
+                                        <button type="button" class="icon-btn" style="width: 24px; height: 24px; font-size: 0.75rem;" title="Eliminar">✕</button>
+                                    </div>
+                                    <input type="text" value="Avances en Inteligencia Artificial" placeholder="Describe tu interés por la tecnología" style="font-size: 0.875rem;">
+                                </div>
+
+                                <!-- Interés: Literatura -->
+                                <div style="margin-bottom: 1rem;">
+                                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                        <span class="category-badge" data-translate="category_literature">📚 Literatura</span>
+                                        <button type="button" class="icon-btn" style="width: 24px; height: 24px; font-size: 0.75rem;" title="Eliminar">✕</button>
+                                    </div>
+                                    <input type="text" value="Disfruto de clásicos y ciencia ficción. Los libros de Orwell y Asimov son mis favoritos." placeholder="Describe tu interés por la literatura" style="font-size: 0.875rem;">
+                                </div>
+
+                                <button type="button" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;" data-translate="btn_add">+ Agregar interés</button>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" style="max-width: 300px; display: block; margin: 0 auto;" data-translate="btn_save_changes">Guardar cambios</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: My Events -->
+            <div id="tab-events" class="tab-content" style="display: none;">
+                <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 2rem;" data-translate="my_events_title">Gestiona tus eventos</h2>
+                
+                <div style="margin-bottom: 1rem;">
+                    <button class="btn btn-primary" data-translate="btn_create_new_event">Crear nuevo evento</button>
+                </div>
+                
+                <div style="margin-bottom: 2rem; display: flex; gap: 0.5rem;">
+                    <button class="btn btn-primary profile-event-filter active" data-filter="all" data-translate="filter_all_events">Todos</button>
+                    <button class="btn btn-secondary profile-event-filter" data-filter="created" data-translate="filter_created_by_me">Creados por mí</button>
+                    <button class="btn btn-secondary profile-event-filter" data-filter="attending" data-translate="filter_attending">Asistiré</button>
+                </div>
+
+                <div class="grid grid-2">
+                    <!-- Event Card - Asistiendo (10 de Febrero) -->
+                    <div class="event-card profile-event-item" data-event-type="attending" data-event-date="2025-02-10">
+                        <img src="images/musica.png" alt="Evento" class="event-image">
+                        <div class="event-content">
+                            <span class="category-badge" style="background: #f59e0b; color: white; margin-bottom: 0.5rem;" data-translate="attending_badge">✓ Asistiré</span>
+                            <span class="category-badge" data-translate="category_music">🎵 Música</span>
+                            <h3 class="event-title" data-translate="profile_event1_title">Festival de Jazz en Vivo</h3>
+                            <div class="event-meta">
+                                <span>📅 <span data-translate="profile_event1_date">10 de Febrero</span></span>
+                                <span>👥 <span data-translate="profile_event1_attendees">120 asistentes</span></span>
+                            </div>
+                            <p class="event-description" data-translate="profile_event1_description">Noche de jazz con artistas internacionales en un ambiente único.</p>
+                            <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                                <button class="btn btn-secondary" style="flex: 1;" data-translate="btn_view_details">Ver detalles</button>
+                                <button class="btn btn-secondary" style="flex: 1;" data-translate="btn_cancel_attendance">Cancelar asistencia</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event Card - Creado por el usuario (15 de Marzo) -->
+                    <div class="event-card profile-event-item" data-event-type="created" data-event-date="2025-03-15">
+                        <img src="images/astronomia.png" alt="Evento" class="event-image">
+                        <div class="event-content">
+                            <span class="category-badge" style="background: var(--color-primary); color: white; margin-bottom: 0.5rem;" data-translate="created_by_you_badge">★ Creado por ti</span>
+                            <span class="category-badge" data-translate="category_science">🔬 Ciencia</span>
+                            <h3 class="event-title" data-translate="profile_event2_title">Conferencia de Astronomía 2024</h3>
+                            <div class="event-meta">
+                                <span>📅 <span data-translate="profile_event2_date">15 de Marzo</span></span>
+                                <span>👥 <span data-translate="profile_event2_attendees">45 asistentes</span></span>
+                            </div>
+                            <p class="event-description" data-translate="profile_event2_description">Tu evento sobre astronomía y exploración espacial.</p>
+                            <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                                <button class="btn btn-secondary" style="flex: 1;" data-translate="btn_edit">Editar</button>
+                                <button class="btn btn-secondary" style="flex: 1;" data-translate="btn_delete">Eliminar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: My Connections -->
+            <div id="tab-connections" class="tab-content" style="display: none;">
+                <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 2rem;" data-translate="my_connections_title">Mis conexiones</h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <!-- Columna: Conexiones -->
+                    <div>
+                        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; color: var(--color-primary);" data-translate="connections_active">Conexiones</h3>
+                        
+                        <!-- Conexión 1 -->
+                        <div class="card" style="margin-bottom: 1rem; padding: 1.25rem;">
+                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                                <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));"></div>
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 600; font-size: 1rem;">María González</div>
+                                    <div style="opacity: 0.7; font-size: 0.875rem;">@mariag</div>
+                                    <div style="opacity: 0.6; font-size: 0.75rem; margin-top: 0.25rem;">🔗 <span data-translate="friends_since">Amigos desde</span> <span data-translate="connection1_date">Mayo 2024</span></div>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <button class="btn btn-primary" style="flex: 1;" data-translate="btn_chat">Chat</button>
+                                <button class="btn btn-secondary" style="flex: 1;" data-translate="btn_unfollow">Dejar de seguir</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Conexión 2 -->
+                        <div class="card" style="margin-bottom: 1rem; padding: 1.25rem;">
+                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                                <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--color-secondary), var(--color-accent));"></div>
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 600; font-size: 1rem;">Carlos Martínez</div>
+                                    <div style="opacity: 0.7; font-size: 0.875rem;">@carlosm</div>
+                                    <div style="opacity: 0.6; font-size: 0.75rem; margin-top: 0.25rem;">🔗 <span data-translate="friends_since">Amigos desde</span> <span data-translate="connection2_date">Enero 2025</span></div>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <button class="btn btn-primary" style="flex: 1;" data-translate="btn_chat">Chat</button>
+                                <button class="btn btn-secondary" style="flex: 1;" data-translate="btn_unfollow">Dejar de seguir</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Columna: Pendientes -->
+                    <div>
+                        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; color: #f59e0b;" data-translate="connections_pending">Pendientes</h3>
+                        
+                        <!-- Solicitud pendiente 1 -->
+                        <div class="card" style="margin-bottom: 1rem; padding: 1.25rem;">
+                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                                <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #f59e0b, #ef4444);"></div>
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 600; font-size: 1rem;">Laura Sánchez</div>
+                                    <div style="opacity: 0.7; font-size: 0.875rem;">@lauras</div>
+                                </div>
+                            </div>
+                            <button class="btn btn-secondary" style="width: 100%;" data-translate="btn_cancel_request">Cancelar solicitud</button>
+                        </div>
+                        
+                        <!-- Solicitud pendiente 2 -->
+                        <div class="card" style="margin-bottom: 1rem; padding: 1.25rem;">
+                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                                <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #8b5cf6, #ec4899);"></div>
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 600; font-size: 1rem;">Pedro López</div>
+                                    <div style="opacity: 0.7; font-size: 0.875rem;">@pedrol</div>
+                                </div>
+                            </div>
+                            <button class="btn btn-secondary" style="width: 100%;" data-translate="btn_cancel_request">Cancelar solicitud</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Columna: Bloqueados -->
+                    <div>
+                        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; color: #ef4444;" data-translate="connections_blocked">Bloqueados</h3>
+                        
+                        <!-- Usuario bloqueado 1 -->
+                        <div class="card" style="margin-bottom: 1rem; padding: 1.25rem;">
+                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                                <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #6b7280, #1f2937);"></div>
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 600; font-size: 1rem;">Ana Ruiz</div>
+                                    <div style="opacity: 0.7; font-size: 0.875rem;">@anaruiz</div>
+                                </div>
+                            </div>
+                            <button class="btn btn-secondary" style="width: 100%;" data-translate="btn_unblock">Desbloquear</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: My Posts -->
+            <div id="tab-posts" class="tab-content" style="display: none;">
+                <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 2rem;" data-translate="my_posts_title">Gestiona tus publicaciones</h2>
+                
+                <div style="margin-bottom: 2rem;">
+                    <button class="btn btn-primary" data-translate="btn_create_new_post">Crear nueva publicación</button>
+                </div>
+
+                <div>
+                    <!-- Post Card 1 -->
+                    <div class="post-card" style="margin-bottom: 2rem;">
+                        <div class="post-content">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));"></div>
+                                    <div>
+                                        <div style="font-weight: 600;">Juan Pérez (<span data-translate="profile_you">Tú</span>)</div>
+                                        <div class="post-meta" style="margin: 0;">
+                                            <span data-translate="category_science">🔬 Ciencia</span>
+                                            <span>• <span data-translate="profile_post1_time">3d</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <button class="icon-btn" style="width: 32px; height: 32px;" data-translate-title="btn_edit" title="Editar">✏️</button>
+                                    <button class="icon-btn" style="width: 32px; height: 32px;" data-translate-title="btn_delete" title="Eliminar">🗑️</button>
+                                </div>
+                            </div>
+                            <p class="post-description" data-translate="profile_post1_content">Mi experiencia en el último workshop de física cuántica fue increíble. Aprendí conceptos fascinantes sobre entrelazamiento cuántico.</p>
+                            <div style="display: flex; gap: 2rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--current-border);">
+                                <span style="display: flex; align-items: center; gap: 0.5rem;">❤️ <span>15 <span data-translate="likes_count">likes</span></span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Post Card 2 -->
+                    <div class="post-card" style="margin-bottom: 2rem;">
+                        <div class="post-content">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));"></div>
+                                    <div>
+                                        <div style="font-weight: 600;">Juan Pérez (<span data-translate="profile_you">Tú</span>)</div>
+                                        <div class="post-meta" style="margin: 0;">
+                                            <span data-translate="category_tech">💻 Tecnología</span>
+                                            <span>• <span data-translate="profile_post2_time">1sem</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <button class="icon-btn" style="width: 32px; height: 32px;" data-translate-title="btn_edit" title="Editar">✏️</button>
+                                    <button class="icon-btn" style="width: 32px; height: 32px;" data-translate-title="btn_delete" title="Eliminar">🗑️</button>
+                                </div>
+                            </div>
+                            <p class="post-description" data-translate="profile_post2_content">Acabo de terminar mi proyecto de domótica casera. Ahora puedo controlar las luces y la temperatura desde el móvil. ¡La tecnología es increíble! 🏠💡</p>
+                            <div style="display: flex; gap: 2rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--current-border);">
+                                <span style="display: flex; align-items: center; gap: 0.5rem;">❤️ <span>28 <span data-translate="likes_count">likes</span></span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Empty state -->
+                    <div class="card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 3rem; text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">✍️</div>
+                        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;" data-translate="no_more_posts">Sin más publicaciones</h3>
+                        <p style="opacity: 0.7;" data-translate="share_thoughts">Comparte tus pensamientos con tu triboo</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>MyTriboo</h3>
+                <p style="opacity: 0.7; line-height: 1.6;" data-translate="footer_description">Conecta con tu triboo a través de tus intereses compartidos.</p>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="footer_product">Producto</h3>
+                <ul>
+                    <li><a href="events.html" data-translate="nav_events">Eventos</a></li>
+                    <li><a href="posts.html" data-translate="nav_posts">Publicaciones</a></li>
+                    <li><a href="chats.html" data-translate="nav_chats">Chats</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="footer_company">Compañía</h3>
+                <ul>
+                    <li><a href="#" data-translate="footer_about">Acerca de</a></li>
+                    <li><a href="#" data-translate="footer_contact">Contacto</a></li>
+                    <li><a href="#" data-translate="footer_privacy">Privacidad</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="footer_social">Social</h3>
+                <ul>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 MyTriboo. <span data-translate="footer_rights">Todos los derechos reservados.</span></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
